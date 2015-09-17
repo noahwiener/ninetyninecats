@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :cats
 
+  has_many :cat_rental_requests
+
   def self.find_by_credentials(user_name, password)
     user = User.where(user_name: user_name).first
 

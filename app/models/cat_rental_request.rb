@@ -9,6 +9,7 @@
 #  status     :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer          not null
 #
 
 class CatRentalRequest < ActiveRecord::Base
@@ -16,10 +17,14 @@ class CatRentalRequest < ActiveRecord::Base
 
   belongs_to :cat
 
+  belongs_to :user
+  
+
   after_initialize :assign_pending_status
 
   validates(
     :cat_id,
+    :user_id,
     :end_date,
     :start_date,
     :status,
