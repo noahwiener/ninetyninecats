@@ -1,0 +1,32 @@
+<% if flash[:errors] %>
+<%   flash[:errors].each do |err_msg| %>
+<%=    err_msg %>
+<%   end %>
+<% end %>
+
+<h1>Create New User</h1>
+
+<form action="<%= users_url %>" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <p>
+    <label for="user_name">User Name</label>
+    <input type="text"
+           name="user[user_name]"
+           id="user_name"
+           value="<%= @user.user_name %>">
+  </p>
+
+  <p>
+    <label for="password">Password</label>
+    <input type="password"
+           name="user[password]"
+           id="password">
+  </p>
+
+  <input type="submit" value="Sign up!">
+
+</form>

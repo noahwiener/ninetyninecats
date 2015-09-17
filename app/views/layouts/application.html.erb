@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>NinetyNineCatsDay1</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,6 +9,21 @@
 </head>
 <body>
 
+<% if current_user %>
+Hi <%= current_user.user_name %>!
+<form action="/session" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <input type="submit" value="(Log out)">
+</form>
+<% else %>
+<%= link_to "Please login", new_session_url %>
+<% end %>
 <%= yield %>
 
 </body>
