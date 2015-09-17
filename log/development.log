@@ -7372,3 +7372,856 @@ Migrating to AddUserIdsToCats (20150917002229)
   [1m[35m (0.3ms)[0m  BEGIN
   [1m[36mSQL (0.5ms)[0m  [1mUPDATE "cats" SET "updated_at" = $1, "user_id" = $2 WHERE "cats"."id" = 1[0m  [["updated_at", "2015-09-17 00:37:55.359796"], ["user_id", 15]]
   [1m[35m (0.6ms)[0m  COMMIT
+
+
+Started GET "/cats" for 127.0.0.1 at 2015-09-16 17:52:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CatsController#index as HTML
+  [1m[35mCat Load (1.2ms)[0m  SELECT "cats".* FROM "cats"
+  Rendered cats/index.html.erb within layouts/application (13.2ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+Completed 200 OK in 363ms (Views: 322.1ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:52:32 -0700
+
+
+Started GET "/cats/2" for 127.0.0.1 at 2015-09-16 17:52:43 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCat Load (0.4ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound - Couldn't find Cat with 'id'=2:
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.6) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.6) lib/active_record/querying.rb:3:in `find'
+  app/controllers/cats_controller.rb:14:in `show'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70365313752840/variables" for 127.0.0.1 at 2015-09-16 17:52:44 -0700
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "cats" ("birth_date", "color", "created_at", "name", "sex", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["birth_date", "2015-09-16"], ["color", "black"], ["created_at", "2015-09-17 00:53:21.449017"], ["name", "Juliet"], ["sex", "F"], ["updated_at", "2015-09-17 00:53:21.449017"], ["user_id", 1]]
+  [1m[36m (13.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/cats/2" for 127.0.0.1 at 2015-09-16 17:53:26 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.9ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCatRentalRequest Load (16.9ms)[0m  SELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date  [["cat_id", 2]]
+  Rendered cats/show.html.erb within layouts/application (169.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+Completed 200 OK in 271ms (Views: 249.5ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:53:27 -0700
+
+
+Started GET "/cats/2/edit" for 127.0.0.1 at 2015-09-16 17:53:29 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCat Load (0.5ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Redirected to http://localhost:3000/cat/2
+Filter chain halted as #<Proc:0x007ffe64161588@/Users/appacademy/Desktop/w4d3/app/controllers/cats_controller.rb:3> rendered or redirected
+Completed 302 Found in 27ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/cat/2" for 127.0.0.1 at 2015-09-16 17:53:29 -0700
+
+ActionController::RoutingError (No route matches [GET] "/cat/2"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (24.2ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.0ms)
+
+
+Started GET "/cats/2/edit" for 127.0.0.1 at 2015-09-16 17:53:29 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.5ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+Redirected to http://localhost:3000/cat/2
+Filter chain halted as #<Proc:0x007ffe64161588@/Users/appacademy/Desktop/w4d3/app/controllers/cats_controller.rb:3> rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/cat/2" for 127.0.0.1 at 2015-09-16 17:53:30 -0700
+
+ActionController::RoutingError (No route matches [GET] "/cat/2"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.1ms)
+
+
+Started GET "/cats/2/edit" for 127.0.0.1 at 2015-09-16 17:54:07 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCat Load (0.7ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Redirected to http://localhost:3000/cats/2
+Filter chain halted as #<Proc:0x007ffe66dc1bf0@/Users/appacademy/Desktop/w4d3/app/controllers/cats_controller.rb:3> rendered or redirected
+Completed 302 Found in 25ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/cats/2" for 127.0.0.1 at 2015-09-16 17:54:07 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.5ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCatRentalRequest Load (0.5ms)[0m  SELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date  [["cat_id", 2]]
+  Rendered cats/show.html.erb within layouts/application (24.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+Completed 200 OK in 144ms (Views: 139.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cats/2/edit" for 127.0.0.1 at 2015-09-16 17:54:08 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCat Load (0.4ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Redirected to http://localhost:3000/cats/2
+Filter chain halted as #<Proc:0x007ffe66dc1bf0@/Users/appacademy/Desktop/w4d3/app/controllers/cats_controller.rb:3> rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/cats/2" for 127.0.0.1 at 2015-09-16 17:54:08 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.3ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCatRentalRequest Load (0.5ms)[0m  SELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date  [["cat_id", 2]]
+  Rendered cats/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+Completed 200 OK in 134ms (Views: 131.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2015-09-16 17:54:13 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCat Load (0.3ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1mSELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date[0m  [["cat_id", 1]]
+  Rendered cats/show.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 75ms (Views: 72.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:14 -0700
+
+
+Started GET "/cats/1/edit" for 127.0.0.1 at 2015-09-16 17:54:15 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered shared/_errors.html.erb (0.5ms)
+  Rendered cats/_form.html.erb (1.2ms)
+  Rendered cats/edit.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 120ms (Views: 114.2ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/cats/1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"authenticity_token"=>"1DUI9nnNXqoQvob1h9uXM56k/j0gmY4ulb37sWKDqm8=", "cat"=>{"name"=>"Gizzzmo", "birth_date"=>"2015-09-16", "color"=>"brown", "sex"=>"M", "description"=>"I love my cat!"}, "id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "cats" SET "description" = $1, "updated_at" = $2 WHERE "cats"."id" = 1  [["description", "I love my cat!"], ["updated_at", "2015-09-17 00:54:24.547541"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cats/1
+Completed 302 Found in 47ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCat Load (0.4ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1mSELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date[0m  [["cat_id", 1]]
+  Rendered cats/show.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 79ms (Views: 76.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:54:24 -0700
+
+
+Started GET "/cats/1/edit" for 127.0.0.1 at 2015-09-16 17:54:56 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered cats/_form.html.erb (0.9ms)
+  Rendered cats/edit.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 151ms (Views: 145.0ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/cats/1" for 127.0.0.1 at 2015-09-16 17:55:00 -0700
+Processing by CatsController#update as HTML
+  Parameters: {"authenticity_token"=>"1DUI9nnNXqoQvob1h9uXM56k/j0gmY4ulb37sWKDqm8=", "cat"=>{"name"=>"Gizzzmo", "birth_date"=>"2015-09-16", "color"=>"orange", "sex"=>"M", "description"=>"I love my cat!"}, "id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "cats" SET "color" = $1, "updated_at" = $2 WHERE "cats"."id" = 1  [["color", "orange"], ["updated_at", "2015-09-17 00:55:00.503303"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cats/1
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2015-09-16 17:55:00 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCat Load (0.5ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1mSELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date[0m  [["cat_id", 1]]
+  Rendered cats/show.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 84ms (Views: 80.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:55:01 -0700
+
+
+Started GET "/cat_rental_requests" for 127.0.0.1 at 2015-09-16 17:56:02 -0700
+
+ActionController::RoutingError (No route matches [GET] "/cat_rental_requests"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendered shared/_errors.html.erb (1.0ms)
+  [1m[36mCat Load (0.5ms)[0m  [1mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (27.8ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 193ms (Views: 141.2ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:56:07 -0700
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2015-09-16 17:56:22 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"2", "start_date"=>"2015-09-26", "end_date"=>"2015-09-30"}}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70365315176700/variables" for 127.0.0.1 at 2015-09-16 17:56:22 -0700
+
+
+Started GET "/cat_rental_requests" for 127.0.0.1 at 2015-09-16 17:57:01 -0700
+
+ActionController::RoutingError (No route matches [GET] "/cat_rental_requests"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (37.3ms)
+  Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (61.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2015-09-16 17:57:03 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mCat Load (0.9ms)[0m  [1mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (36.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 231ms (Views: 228.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:04 -0700
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"authenticity_token"=>"1DUI9nnNXqoQvob1h9uXM56k/j0gmY4ulb37sWKDqm8=", "cat_rental_request"=>{"cat_id"=>"2", "start_date"=>"2015-09-16", "end_date"=>"2015-09-25"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (48.7ms)[0m  SELECT COUNT(*) FROM "cat_rental_requests"  WHERE ((NULL IS NULL) OR (id != NULL)) AND "cat_rental_requests"."cat_id" = 2 AND (       NOT( (start_date > '2015-09-25') OR (end_date < '2015-09-16') )
+) AND (status = 'APPROVED')
+  [1m[36mSQL (25.6ms)[0m  [1mINSERT INTO "cat_rental_requests" ("cat_id", "created_at", "end_date", "start_date", "status", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["cat_id", 2], ["created_at", "2015-09-17 00:57:12.090760"], ["end_date", "2015-09-25"], ["start_date", "2015-09-16"], ["status", "PENDING"], ["updated_at", "2015-09-17 00:57:12.090760"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mCat Load (0.4ms)[0m  [1mSELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/cats/2
+Completed 302 Found in 88ms (ActiveRecord: 75.7ms)
+
+
+Started GET "/cats/2" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCat Load (0.4ms)[0m  SELECT  "cats".* FROM "cats"  WHERE "cats"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1mSELECT "cat_rental_requests".* FROM "cat_rental_requests"  WHERE "cat_rental_requests"."cat_id" = $1  ORDER BY start_date[0m  [["cat_id", 2]]
+  Rendered cats/_req_tr.html.erb (1.5ms)
+  Rendered cats/show.html.erb within layouts/application (8.5ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."session_token" = 'JlxJLddJbrs2rX4eOtG_ng' LIMIT 1
+Completed 200 OK in 104ms (Views: 100.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-09-16 17:57:12 -0700

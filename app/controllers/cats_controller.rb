@@ -1,4 +1,10 @@
 class CatsController < ApplicationController
+
+  before_action only: [:edit, :update] do
+    @cat = Cat.find(params[:id])
+    redirect_to "/cats/#{params[:id]}" unless @cat.owner == current_user
+  end
+
   def index
     @cats = Cat.all
     render :index

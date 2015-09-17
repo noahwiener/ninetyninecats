@@ -1,4 +1,10 @@
 class CatRentalRequestsController < ApplicationController
+
+  before_action only: [:approve, :deny] do
+    @cat = Cat.find(params[:id])
+    redirect_to "/cat/#{params[:id]}" unless @cat.owner == current_user
+  end
+
   def approve
     current_cat_rental_request.approve!
     redirect_to cat_url(current_cat)
